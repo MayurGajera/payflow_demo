@@ -12,7 +12,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!authLoading && user) router.replace("/payouts");
+    if (!authLoading && user) router.replace("/dashboard");
   }, [user, authLoading, router]);
 
   async function handleSubmit(e) {
@@ -21,7 +21,7 @@ export default function LoginPage() {
     setLoading(true);
     try {
       await login(email, password);
-      router.push("/payouts");
+      router.push("/dashboard");
     } catch (err) {
       setError(err.message);
     } finally {
