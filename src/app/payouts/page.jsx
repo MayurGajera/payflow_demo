@@ -115,7 +115,7 @@ export default function PayoutsPage() {
 
         {loading ? (
           <ShimmerTable cols={7} rows={5} />
-        ) : payouts.length === 0 ? (
+        ) : !payouts || payouts.length === 0 ? (
           <div className="empty-state">
             <p>No payouts found.</p>
           </div>
