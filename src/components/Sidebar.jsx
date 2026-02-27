@@ -17,8 +17,18 @@ export default function Sidebar() {
       </div>
       <nav>
         <Link
+          href="/dashboard"
+          className={pathname.startsWith("/dashboard") ? "active" : ""}
+        >
+          📊 Dashboard
+        </Link>
+        <Link
           href="/payouts"
-          className={pathname.startsWith("/payouts") ? "active" : ""}
+          className={
+            pathname.startsWith("/payouts") && pathname !== "/payouts/new"
+              ? "active"
+              : ""
+          }
         >
           💸 Payouts
         </Link>
@@ -38,12 +48,6 @@ export default function Sidebar() {
         )}
       </nav>
       <div className="sidebar-footer">
-        <div className="user-info">
-          <strong>{user.email}</strong>
-          <span className={`badge badge-${user.role.toLowerCase()}`}>
-            {user.role}
-          </span>
-        </div>
         <button
           onClick={logout}
           className="btn btn-ghost"

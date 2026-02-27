@@ -3,6 +3,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
+import Header from "@/components/Header";
 
 export default function AppLayout({ children }) {
   const { user, loading } = useAuth();
@@ -24,7 +25,10 @@ export default function AppLayout({ children }) {
   return (
     <div className="app-layout">
       <Sidebar />
-      <main className="main-content">{children}</main>
+      <div className="main-wrapper">
+        <Header />
+        <main className="main-content">{children}</main>
+      </div>
     </div>
   );
 }

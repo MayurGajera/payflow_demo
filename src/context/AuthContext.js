@@ -28,6 +28,7 @@ export function AuthProvider({ children }) {
     const data = await res.json();
     if (!res.ok) throw new Error(data.message || "Login failed");
     setUser(data.user);
+    router.push("/dashboard");
     return data.user;
   }
 

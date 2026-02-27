@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!loading) {
-      router.replace(user ? "/payouts" : "/login");
+      router.replace(user ? "/dashboard" : "/login");
     }
   }, [user, loading, router]);
 
